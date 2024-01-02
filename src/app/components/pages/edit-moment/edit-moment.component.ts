@@ -31,22 +31,22 @@ export class EditMomentComponent implements OnInit {
   }
 
   async editHandler(momentData: Moment) {
-    const id = this.moment.id
+    const id = this.moment.id;
 
-    const formData = new FormData()
+    const formData = new FormData();
 
-    formData.append('title', momentData.title)
-    formData.append('description', momentData.description)
+    formData.append('title', momentData.title);
+    formData.append('description', momentData.description);
 
     if (momentData.image) {
-      formData.append('image', momentData.image)
+      formData.append('image', momentData.image);
     }
 
-    await this.momentService.updateMoment(id!, formData).subscribe
-
-    this.messagesService.add(`Momento ${id} foi atualizado com sucesso`)
-
-    this.router.navigate(['/'])
+    this.momentService.updateMoment(id!, formData).subscribe(
+      () => {
+        this.messagesService.add(`Momento ${id} foi atualizado com sucesso`);
+        this.router.navigate(['/']);
+      },
+    );
   }
-
 }

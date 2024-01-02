@@ -70,7 +70,7 @@ export class OnemomentComponent implements OnInit {
 
     data.mommentId = Number(this.moment!.id)
 
-    this.commentService.createComment(data).subscribe((comment) => this.moment!.comments!.push(comment.data))
+    await this.commentService.createComment(data).subscribe((comment) => this.moment!.comments!.push(comment.data))
 
     this.messagesService.add('Comentário adicionado!')
 

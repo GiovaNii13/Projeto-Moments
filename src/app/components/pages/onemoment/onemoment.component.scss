@@ -35,9 +35,13 @@
         button fa-icon, a fi-icon {
             margin-right: 0.2em;
         }
-        .edit-btn, .edit-btn path {
+        .edit-btn {
             border-color: #007bff;
             color: #007bff;
+            path {
+                color: #007bff;
+            }
+
             &:hover {
                 color: #FFF;
                 background-color: #007bff;
